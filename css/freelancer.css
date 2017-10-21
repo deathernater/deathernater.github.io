@@ -164,7 +164,8 @@ header.masthead {
   text-align: center;
   color: white;
   background: #18BC9C;
-  background-image: url('../img/boston-pano.png');}
+  background-image: url('../img/city-pano.png');
+  background-attachment: fixed; }
   header.masthead img {
     display: block;
     margin: 0 auto 20px; }
