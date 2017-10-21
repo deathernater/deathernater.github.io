@@ -1,0 +1,103 @@
+/* background setup */
+.background {
+    background-repeat:no-repeat;
+    /* custom background-position */
+    background-position:50% 50%;
+    /* ie8- graceful degradation */
+    background-position:50% 50%\9 !important;
+}
+
+/* fullscreen setup */
+html, body {
+    /* give this to all tags from html to .fullscreen */
+    height:100%;
+}
+.fullscreen,
+.content-a {
+    width:100%;
+    min-height:100%;
+}
+.not-fullscreen,
+.not-fullscreen .content-a,
+.fullscreen.not-overflow,
+.fullscreen.not-overflow .content-a {
+    height:100%;
+    overflow:hidden;
+}
+
+/* content centering styles */
+.content-a {
+	display:table;
+}
+.content-b {
+	display:table-cell;
+    position:relative;
+	vertical-align:middle;
+	text-align:center;
+}
+.aboutMeHeader {
+	display:table-cell;
+    position:relative;
+	vertical-align:middle;
+	text-align:center;
+	font-family:Impact, Charcoal, sans-serif;
+    font-size:45px;
+}
+.aboutMe {
+	display:table-cell;
+    position:relative;
+	vertical-align:top;
+	text-align:left;
+	color:#E6E6E6;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size:20px;
+	line-height:35px;
+}
+.contact {
+	display:table-cell;
+    position:relative;
+	vertical-align:middle;
+	text-align:center;
+	color:#0033CC;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size:50px;
+	line-height:200px;
+}
+
+/* visual styles */
+body {
+    margin:0;
+    font-family:sans-serif;
+    font-size:28px;
+    line-height:100px;
+	color:#ffffff;
+    text-align:center;
+}
+section {
+	background:#9ed100;
+}
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+	font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size:30px;
+	line-height:45px;
+}
+th,td {
+    padding: 15px;
+}
+p {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 25px;
+    margin-right: 25px;
+}
+img {
+	display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+.not-fullscreen {
+    height:50%;
+}
