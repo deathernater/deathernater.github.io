@@ -185,7 +185,9 @@ header.masthead {
       font-size: 4.00em; }
     header.masthead .intro-text .skills {
       font-size: 1.75em;
-      background-color: #00000064; } }
+      background-color: #00000064;
+      padding-left: 0.25em;
+      padding-right: 0.25em; } }
 
 #portfolio .portfolio-item {
   right: 0;
