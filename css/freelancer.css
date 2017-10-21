@@ -42,12 +42,9 @@ hr.star-primary {
 
 hr.star-light:after,
 hr.star-primary:after {
-  font-family: FontAwesome;
-  font-size: 2em;
   position: relative;
-  top: -.8em;
+  top: -2.5em;
   display: inline-block;
-  padding: 0 0.25em;
   content:  url('../img/gt-seal.png'); }
 
 hr.star-light {
@@ -55,7 +52,7 @@ hr.star-light {
 
 hr.star-light:after {
   color: white;
-  background-color: #000000; }
+  background-color: #00000000; }
 
 hr.star-primary {
   border-color: #2C3E50; }
