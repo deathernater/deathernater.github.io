@@ -1,0 +1,171 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0037)http://www.prism.gatech.edu/~lzhou76/ -->
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en" class="gr__prism_gatech_edu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" media="screen" href="./index_files/frankformat.css">
+<title>Lingfeng (Frank) Zhou</title>
+<style>@media print {#ghostery-purple-box {display:none !important}}</style></head>
+
+<body data-gr-c-s-loaded="true">
+<div class="fullscreen background parallax not-overflow" style="background-image: url(&quot;http://www.prism.gatech.edu/~lzhou76/pictures/GreatWall.JPG&quot;); background-attachment: fixed; background-size: 1559.4px 1037px; background-position: 50% -50px;" data-img-width="1600" data-img-height="1064" data-diff="100">
+    <div class="content-a">
+        <div class="content-b">
+			<h1>Lingfeng (Frank) Zhou</h1>
+        </div>
+    </div>
+</div>
+
+<div class="not-fullscreen background parallax" style="background-image: url(&quot;http://www.prism.gatech.edu/~lzhou76/pictures/Stars.jpg&quot;); background-attachment: fixed; background-size: 1559.4px 1037px;" data-img-width="1600" data-img-height="1064" data-diff="100">
+    <div class="content-a">
+        <div class="aboutMeHeader">
+			About Me
+        </div>
+    </div>
+</div>
+
+<section class="fullscreen">
+    <div class="content-a">
+        <div class="aboutMe">
+			<p>
+				Hello, my name is Lingfeng, but I go by Frank. I am a first-year Electrical Engineering major at Georgia Tech. I am originally from Shenzhen, China, but I have since then lived in Japan, Boston, and Los Angeles.
+				Outside of travel, I love to follow astrophysics, and of course, play video games. Over the past four years, I interned at IBM and CSAIL MIT in addition to enduring high school. I was fortunate to be blessed with
+				the company of extraordinary people whom I gained my invaluable "on-the-job" experiences from. Without boring you to death, I now would like to acknowledge the internet's usefulness in allowing interested parties
+				to connect and troll. I am going straight to the point...
+				If you are PC Master Race, add me on steam, if you are femme-fatale, add me on e-Harmony, and if you are Elon Musk, hire me, and if you are unsure, do all three!
+				Adventure awaits!
+			</p>
+			<img src="./index_files/Frank.jpg" alt="Picture of Frank" title="Buy us dinner, if you please.">
+			<br>
+			<br>
+        </div>
+    </div>
+</section>
+
+<div class="fullscreen background parallax" style="background-image: url(&quot;http://www.prism.gatech.edu/~lzhou76/pictures/Clouds.JPG&quot;); background-attachment: fixed; background-size: 1559.4px 1037px;" data-img-width="1600" data-img-height="1064" data-diff="100" data-oriz-pos="100%">
+    <div class="content-a">
+        <div class="contact">
+            Contact Information
+			<table align="center">
+			<tbody><tr>
+				<td>Link to my steam page: <a href="http://steamcommunity.com/id/thester" target="_blank">Deathernater</a></td>
+			</tr>
+			<tr>
+				<td>A Worthwhile Space Sim:<a href="http://www.elitedangerous.com/" target="_blank"><img src="./index_files/frontierlogo.png" alt="Elite" title="Elite: Dangerous"></a></td>
+			</tr>
+			<tr>
+				<td><a href="mailto:lingfeng_zhou@gatech.edu" target="_blank">Email Me</a></td>
+			</tr>
+			<tr>
+				<td><a href="http://www.prism.gatech.edu/~lzhou76/frankmailform.html" target="_blank">Mail Form Page</a>
+			</td></tr>
+		</tbody></table>
+        </div>
+    </div>
+</div>
+
+<!-- include jQuery -->
+<script src="./index_files/jquery-2.1.1.js.download">
+</script>
+<script>
+/* detect touch */
+if("ontouchstart" in window){
+    document.documentElement.className = document.documentElement.className + " touch";
+}
+if(!$("html").hasClass("touch")){
+    /* background fix */
+    $(".parallax").css("background-attachment", "fixed");
+}
+
+/* fix vertical when not overflow
+call fullscreenFix() if .fullscreen content changes */
+function fullscreenFix(){
+    var h = $('body').height();
+    // set .fullscreen height
+    $(".content-b").each(function(i){
+        if($(this).innerHeight() <= h){
+            $(this).closest(".fullscreen").addClass("not-overflow");
+        }
+    });
+}
+$(window).resize(fullscreenFix);
+fullscreenFix();
+
+/* resize background images */
+function backgroundResize(){
+    var windowH = $(window).height();
+    $(".background").each(function(i){
+        var path = $(this);
+        // variables
+        var contW = path.width();
+        var contH = path.height();
+        var imgW = path.attr("data-img-width");
+        var imgH = path.attr("data-img-height");
+        var ratio = imgW / imgH;
+        // overflowing difference
+        var diff = parseFloat(path.attr("data-diff"));
+        diff = diff ? diff : 0;
+        // remaining height to have fullscreen image only on parallax
+        var remainingH = 0;
+        if(path.hasClass("parallax") && !$("html").hasClass("touch")){
+            var maxH = contH > windowH ? contH : windowH;
+            remainingH = windowH - contH;
+        }
+        // set img values depending on cont
+        imgH = contH + remainingH + diff;
+        imgW = imgH * ratio;
+        // fix when too large
+        if(contW > imgW){
+            imgW = contW;
+            imgH = imgW / ratio;
+        }
+        //
+        path.data("resized-imgW", imgW);
+        path.data("resized-imgH", imgH);
+        path.css("background-size", imgW + "px " + imgH + "px");
+    });
+}
+$(window).resize(backgroundResize);
+$(window).focus(backgroundResize);
+backgroundResize();
+
+/* set parallax background-position */
+function parallaxPosition(e){
+    var heightWindow = $(window).height();
+    var topWindow = $(window).scrollTop();
+    var bottomWindow = topWindow + heightWindow;
+    var currentWindow = (topWindow + bottomWindow) / 2;
+    $(".parallax").each(function(i){
+        var path = $(this);
+        var height = path.height();
+        var top = path.offset().top;
+        var bottom = top + height;
+        // only when in range
+        if(bottomWindow > top && topWindow < bottom){
+            var imgW = path.data("resized-imgW");
+            var imgH = path.data("resized-imgH");
+            // min when image touch top of window
+            var min = 0;
+            // max when image touch bottom of window
+            var max = - imgH + heightWindow;
+            // overflow changes parallax
+            var overflowH = height < heightWindow ? imgH - height : imgH - heightWindow; // fix height on overflow
+            top = top - overflowH;
+            bottom = bottom + overflowH;
+            // value with linear interpolation
+            var value = min + (max - min) * (currentWindow - top) / (bottom - top);
+            // set background-position
+            var orizontalPosition = path.attr("data-oriz-pos");
+            orizontalPosition = orizontalPosition ? orizontalPosition : "50%";
+            $(this).css("background-position", orizontalPosition + " " + value + "px");
+        }
+    });
+}
+if(!$("html").hasClass("touch")){
+    $(window).resize(parallaxPosition);
+    //$(window).focus(parallaxPosition);
+    $(window).scroll(parallaxPosition);
+    parallaxPosition();
+}
+</script>
+
+</body><span class="gr__tooltip"><span class="gr__tooltip-content"></span><i class="gr__tooltip-logo"></i><span class="gr__triangle"></span></span></html>
