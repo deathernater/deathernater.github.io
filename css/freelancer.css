@@ -75,7 +75,7 @@ section.success {
   background: #ffc107;
   background-image: url('../img/about-me-bg.png');
   background-attachment: fixed;
-  background-size: auto 100%; }
+  background-size: 100% auto; }
 
 @media (max-width: 767px) {
   section {
